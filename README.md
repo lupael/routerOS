@@ -6,7 +6,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/EvilFreelancer/routeros-api-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/EvilFreelancer/routeros-api-php/?branch=master)
 [![Scrutinizer CQ](https://scrutinizer-ci.com/g/evilfreelancer/routeros-api-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/evilfreelancer/routeros-api-php/)
 
-# RouterOS API Client
+# RouterOS API Client :
 
     composer require evilfreelancer/routeros-api-php
 
@@ -17,12 +17,12 @@ to work with PHP7 in accordance with the PSR standards.
 You can use this library with pre-6.43 and post-6.43 versions of
 RouterOS firmware, it will be detected automatically on connection stage.
 
-## Minimum requirements
+## Minimum requirements :
 
 * `php` >= 7.2
 * `ext-sockets`
 
-## Laravel framework support
+## Laravel framework support :
 
 RouterOS API client is optimized for usage as normal Laravel package, all functional is available via `\RouterOS` facade,
 for access to client object you need instead:
@@ -63,7 +63,7 @@ dump($config);
 $client = \RouterOS::client($config);
 ```
 
-### Laravel installation
+### Laravel installation :
 
 By default, the package will automatically register its service provider, but
 if you are a happy owner of Laravel version less than 5.5, then in a project, which is using your package
@@ -80,7 +80,7 @@ Optionally, publish the configuration file if you want to change any defaults:
 
     php artisan vendor:publish --provider="RouterOS\\Laravel\\ServiceProvider"
 
-## How to use
+## How to use :
 
 Basic example, analogue via command line is `/ip hotspot ip-binding print`:
 
@@ -206,7 +206,7 @@ $response = $client->query($query)->read();
 
 > All available examples you can find [here](https://github.com/EvilFreelancer/routeros-api-php/tree/master/examples).
 
-## How to configure the client
+## How to configure the client :
 
 You just need create object of Client class with required
 parameters in array format:
@@ -301,7 +301,7 @@ $client = new Client([
 // Your code below...
 ```
 
-## How to write queries
+## How to write queries :
 
 You can write absolutely any queries to your router, for this you
 need to create a "Query" object whose first argument is the
@@ -452,7 +452,7 @@ $response = $client->query($query)->read();
 
 </details>
 
-## Read response as Iterator
+## Read response as Iterator :
 
 By default, original solution of this client is not optimized for
 work with a large amount of results, only for small count of lines
@@ -484,7 +484,7 @@ for ($response->rewind(); $response->valid(); $response->next()) {
 }
 ```
 
-## Short methods
+## Short methods :
 
 You can simplify your code and send then read from socket in one line:
 
@@ -526,9 +526,9 @@ $client->query($query1)->query($query2)->query($query3);
 $client->q($query1)->q($query2)->q($query3);
 ```
 
-## Known issues
+## Known issues :
 
-### Unable to establish socket session, Operation timed out
+### Unable to establish socket session, Operation timed out :
 
 This error means that the library cannot connect to your router,
 it may mean router turned off (then need turn on), or the API service not enabled.
@@ -595,7 +595,7 @@ RouterOS does not support national languages, only English (and API of RouterOS 
 You can try to reproduce it via web, for example add the comment to any
 element of your system, then save and reload the page, you will see unreadable characters.
 
-## Testing
+## Testing :
 
 You can use my [other project](https://github.com/EvilFreelancer/docker-routeros)
 with RouterOS in Docker container for running unit testing on your
